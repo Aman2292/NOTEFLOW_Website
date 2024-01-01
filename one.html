@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form name="registrationForm" onsubmit="return validateForm()">
+        <label for="username"> Name:</label>
+        <input type="text" id="username" name="username" >
+        <span id="usernameError" class="error"></span><br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" >
+        <span id="passwordError" class="error"></span><br>
+        <br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" >
+        <span id="confirmPasswordError" class="error"></span><br>
+        <br>
+        <label for="email">Email ID:</label>
+        <input type="email" id="email" name="email" >
+        <span id="emailError" class="error"></span><br>
+        <br>
+        <label for="contactNumber">Contact Number:</label>
+        <input type="text" id="contactNumber" name="contactNumber" >
+        <span id="contactNumberError" class="error"></span><br>
+        <br>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" >
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+        <span id="genderError" class="error"></span><br>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            const username = document.forms["registrationForm"]["username"].value;
+            const password = document.forms["registrationForm"]["password"].value;
+            const confirmPassword = document.forms["registrationForm"]["confirmPassword"].value;
+            const email = document.forms["registrationForm"]["email"].value;
+            const contactNumber = document.forms["registrationForm"]["contactNumber"].value;
+            const gender = document.forms["registrationForm"]["gender"].value;
+            let isValid = true;
+            
+            const usernameError = document.getElementById("usernameError");
+            const passwordError = document.getElementById("passwordError");
+            const confirmPasswordError = document.getElementById("confirmPasswordError");
+            const emailError = document.getElementById("emailError");
+            const contactNumberError = document.getElementById("contactNumberError");
+            
+            if (username === "") {
+                usernameError.innerHTML = "Username is required.";
+                isValid = false;
+            } else {
+                usernameError.innerHTML = "";
+            }
+            
+            if (password === "") {
+                passwordError.innerHTML = "Password is required.";
+                isValid = false;
+            } else if (password.length < 6) {
+                passwordError.innerHTML = "Password should be at least 6 characters long.";
+                isValid = false;
+            } else {
+                passwordError.innerHTML = "";
+            }
+            
+            if (confirmPassword === "") {
+                confirmPasswordError.innerHTML = "Confirm Password is required.";
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                confirmPasswordError.innerHTML = "Passwords do not match.";
+                isValid = false;
+            } else {
+                confirmPasswordError.innerHTML = "";
+            }
+            
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                emailError.innerHTML = "Please enter a valid email address.";
+                isValid = false;
+            } else {
+                emailError.innerHTML = "";
+            }
+            
+            const contactNumberPattern = /^[6-9]\d{9}$/;
+            if (!contactNumberPattern.test(contactNumber)) {
+                contactNumberError.innerHTML = "Please enter a valid Indian contact number.";
+                isValid = false;
+            } else {
+                contactNumberError.innerHTML = "";
+            }
+            
+            if (gender === "") {
+                alert("Please select a gender.");
+                isValid = false;
+            }
+            
+            return isValid;
+        }</script>
+</body>
+</html>

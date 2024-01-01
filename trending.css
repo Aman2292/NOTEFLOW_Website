@@ -1,0 +1,273 @@
+body {
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(50, 22, 89, 1) 23%,
+    rgba(39, 20, 166, 1) 45%,
+    rgba(136, 61, 242, 1) 71%,
+    rgba(42, 149, 191, 1) 95%
+  );
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Add custom styles for buttons */
+#prevBtn,
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-90px);
+  padding: 10px 20px;
+  background: rgba(78, 150, 198, 0.563);
+  box-shadow: 0 8px 32px 0 rgba(10, 10, 16, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(71, 29, 29, 0.18);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 2; /* Ensure buttons are above sections */
+}
+
+#prevBtn {
+  left: 20px;
+}
+
+#nextBtn {
+  right: 20px;
+}
+
+.filler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3900px;
+  height: 70px;
+}
+
+#container {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling for the container */
+  scroll-snap-type: x mandatory;
+}
+
+.section {
+  flex: 0 0 auto;
+  width: 600px;
+  height: 350px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-right: 20px;
+  scroll-snap-align: start;
+  /* scrollbar-width: 2px; */
+}
+
+.sections {
+  display: flex;
+  scroll-snap-type: x mandatory;
+}
+.card {
+  width: 240px; /* Adjust as needed */
+  height: 340px;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  scroll-snap-align: start;
+}
+
+
+
+.firsth1 {
+  padding-bottom: 10px;
+  color: rgb(2, 4, 5);
+  margin-top: 20px;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 2fr); /* 5 cards per row */
+  gap: 8px; /* Gap between cards */
+}
+
+.card-image{
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  transform: translateY(-50px);
+  border-radius: 10px;
+  overflow:hidden;
+  
+}
+.card-title{
+  transform: translateY(80px);
+  color: antiquewhite;
+}
+.card-singers{
+  position: absolute;
+    transform: translateY(100px);
+    color: antiquewhite;
+  
+}
+.main-card-image {
+  position: absolute;
+  width: 600px;
+  height: 350px;
+  transform: translateY(0px);
+  border-radius: 10px;
+  
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  overflow: -moz-scrollbars-none; /* Older Firefox versions */
+}
+.main-card-image::-webkit-scrollbar {
+  width: 0;
+  background: transparent; /* You can make the scrollbar background transparent */
+}
+ 
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+.container{
+  max-width: 1170px;
+  margin:auto;
+}
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
+ul{
+  list-style: none;
+}
+.footer{
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+  font-size: 18px;
+  color: #070606;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+.footer-col h4::before{
+  content: '';
+  position: absolute;
+  left:0;
+  bottom: -10px;
+  background-color: #ff0055;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child){
+  margin-bottom: 10px;
+}
+.footer-col ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #943fe3;
+  text-decoration: none;
+  font-weight: 300;
+  color: #ffffff;
+  display: block;
+  transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255,255,255,0.2);
+  margin:0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+  color: #000000;
+  background-color: #ffffff;
+}
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  width: 0; /* WebKit (Chrome, Safari, etc.) */
+}
+
+
+.container {
+  
+  
+ align-items: center;
+  display:contents;
+  justify-content: center; /* Add this line to space buttons evenly */
+}
+
+.btn {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-top: 800px;
+  border: 3px solid #2e0236;
+  padding: 10px;
+  margin-right: 100px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transform: translateY(10px);
+  transition: transform 0.1s, box-shadow 0.1s; 
+}
+.container .btn:hover {
+  box-shadow: 4px 4px 4px 4px #b560ca;
+  backdrop-filter:initial;
+}
+
+
+
+
+
+ 
